@@ -1,0 +1,34 @@
+{
+  "name": "smokelessnight",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThorHelms/SmokelessNight.git"
+  },
+  "author": "Thor Helms",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThorHelms/SmokelessNight/issues"
+  },
+  "homepage": "https://github.com/ThorHelms/SmokelessNight#readme",
+  "dependencies": {
+    "@angular/common": "latest",
+    "@angular/compiler": "latest",
+    "@angular/core": "latest",
+    "@angular/platform-browser": "latest",
+    "@angular/router": "latest",
+    "rxjs": "5.0.0-rc.4",
+    "zone.js": "latest"
+  },
+  "devDependencies": {
+    "concurrently": "latest",
+    "tslint": "latest",
+    "typescript": "latest"
+  }
+}
