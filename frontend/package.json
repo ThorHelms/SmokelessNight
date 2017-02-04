@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/ThorHelms/SmokelessNight#readme",
   "dependencies": {
-    "@angular/common": "latest",
-    "@angular/compiler": "latest",
-    "@angular/core": "latest",
-    "@angular/platform-browser": "latest",
-    "@angular/router": "latest",
-    "rxjs": "5.0.0-rc.4",
+    "@angular/common": "^2.4.6",
+    "@angular/compiler": "^2.4.6",
+    "@angular/core": "^2.4.6",
+    "@angular/platform-browser": "^2.4.6",
+    "@angular/router": "^3.4.6",
+    "rxjs": "^5.1.0",
     "zone.js": "latest"
   },
   "devDependencies": {
