@@ -3,8 +3,8 @@ api_version: go1
 
 handlers:
 - url: /
-  static_files: ../frontend/bin/index.html
-  upload: ../frontend/bin/index.html
+  static_files: ../frontend/src/index.html
+  upload: ../frontend/src/index.html
 
 - url: /resources
   static_dir: ../frontend/bin
