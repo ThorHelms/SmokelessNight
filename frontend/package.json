@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "build": "npm run build:js",
     "build:js": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "npm run build:js -- --watch",
