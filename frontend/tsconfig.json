@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "system",
     "outDir": "bin",
+    "outFile":"bin/main.bundle.js",
     "rootDir": ".",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
