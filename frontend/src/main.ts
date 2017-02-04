@@ -1,9 +1,9 @@
 import './polyfills.browser';
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { platformBrowser } from '@angular/platform-browser';
 import { AppModule } from './app/app.module';
 
-export const platformRef = platformBrowserDynamic();
+export const platformRef = platformBrowser();
 
 export function main() {
   return platformRef.bootstrapModule(AppModule)
