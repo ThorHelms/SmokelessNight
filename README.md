@@ -15,7 +15,8 @@ Source code overview:
 
 
 Compiling the code:
-* ?
+* To compile the frontend project use `npm run build`
+Alternately, use `npm run watch` to automatically rebuild on file changes.
 
 
 Running the dev environment:
