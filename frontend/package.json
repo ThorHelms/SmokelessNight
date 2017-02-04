@@ -5,7 +5,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:js": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:js": "npm run build:js -- --watch",
+    "watch": "npm run watch:js"
   },
   "repository": {
     "type": "git",
