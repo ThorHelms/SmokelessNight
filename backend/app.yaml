@@ -1,0 +1,13 @@
+runtime: go
+api_version: go1
+
+handlers:
+- url: /
+  static_files: ../frontend/bin/index.html
+  upload: ../frontend/bin/index.html
+
+- url: /resources
+  static_dir: ../frontend/bin
+
+- url: /api/.*
+  script: _go_app
