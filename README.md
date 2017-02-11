@@ -6,6 +6,7 @@ Installation guide:
 * Install [SASS](http://sass-lang.com/install)
 * Install [GO](https://golang.org/doc/install)
 * Install [Google Go Appengine](https://cloud.google.com/appengine/docs/go/download)
+* TODO: Guide to installing App Engine Datastore dependency
 
 
 Source code overview:

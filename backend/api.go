@@ -1,14 +1,18 @@
-package hello
+package api
 
 import (
-    "fmt"
-    "net/http"
+	"net/http"
+	"strings"
+	"venue"
 )
 
-func init() {
-    http.HandleFunc("/", handler)
+func handleFunc(url string, handler func(string, http.ResponseWriter, *http.Request)) {
+	http.HandleFunc(url, func(w http.ResponseWriter, r *http.Request) {
+		relUrl := strings.Replace(r.URL.Path, url, "", 1)
+		handler(relUrl, w, r)
+	})
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Hello, cruel world!")
+func init() {
+	handleFunc("/api/venue/", venue.Handler)
 }
