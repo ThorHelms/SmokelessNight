@@ -5,8 +5,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "npm run build:js",
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "mkdirp bin/css && sass -l src/sass/* bin/css/main.css",
     "build:js": "tsc",
+    "clean": "rimraf bin",
     "lint": "tslint --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "npm run build:js -- --watch",
@@ -33,6 +35,8 @@
   },
   "devDependencies": {
     "concurrently": "latest",
+    "mkdirp": "latest",
+    "rimraf": "^2.5.4",
     "tslint": "latest",
     "typescript": "latest"
   }
