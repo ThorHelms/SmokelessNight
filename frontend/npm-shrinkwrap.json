@@ -545,6 +545,12 @@
       "resolved": "https://registry.npmjs.org/resolve/-/resolve-1.1.7.tgz",
       "dev": true
     },
+    "rimraf": {
+      "version": "2.5.4",
+      "from": "rimraf@latest",
+      "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-2.5.4.tgz",
+      "dev": true
+    },
     "rx": {
       "version": "2.3.24",
       "from": "rx@2.3.24",
