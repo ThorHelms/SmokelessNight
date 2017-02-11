@@ -28,3 +28,6 @@ _testmain.go
 .DS_Store
 **/npm-debug.log
 ._*
+
+# Sass
+.sass-cache

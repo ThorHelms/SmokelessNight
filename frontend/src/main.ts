@@ -1,9 +1,9 @@
-import './polyfills.browser';
+import "./polyfills.browser";
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { platformBrowser } from "@angular/platform-browser";
+import { AppModule } from "./app/app.module";
 
-export const platformRef = platformBrowserDynamic();
+export const platformRef = platformBrowser();
 
 export function main() {
   return platformRef.bootstrapModule(AppModule)
@@ -12,11 +12,11 @@ export function main() {
 
 // support async tag or hmr
 switch (document.readyState) {
-  case 'interactive':
-  case 'complete':
+  case "interactive":
+  case "complete":
     main();
     break;
-  case 'loading':
+  case "loading":
   default:
-    document.addEventListener('DOMContentLoaded', () => main());
+    document.addEventListener("DOMContentLoaded", () => main());
 }

@@ -5,7 +5,14 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "mkdirp bin/css && sass -l src/sass/* bin/css/main.css",
+    "build:js": "tsc",
+    "clean": "rimraf bin",
+    "lint": "tslint --project tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:js": "npm run build:js -- --watch",
+    "watch": "npm run watch:js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +35,8 @@
   },
   "devDependencies": {
     "concurrently": "latest",
+    "mkdirp": "latest",
+    "rimraf": "^2.5.4",
     "tslint": "latest",
     "typescript": "latest"
   }
