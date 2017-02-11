@@ -45,8 +45,8 @@ type VenueDataModel struct {
 }
 
 const venue = "Venue"
-const invalidKeyMsg = "Invalid key"
-const methodNotAllowedMsg = "Method not allowed"
+const invalidKeyMsg = "Invalid key: "
+const methodNotAllowedMsg = "Method not allowed: "
 
 var isValidKeyRegexp = regexp.MustCompile("^[a-zA-Z0-9-]+$")
 
@@ -56,23 +56,23 @@ func isValidKey(relUrl string) bool {
 
 func Handler(relUrl string, w http.ResponseWriter, r *http.Request) {
 	if strings.EqualFold(r.Method, "get") {
-		if strings.EqualFold(relUrl, "list") { // TODO: Determine how to list the venues
-			//venuesRaw := r.URL.Query().Get("venues")
-			//venues := strings.Split(venuesRaw, ",")
-			// TODO: List-handler
+		if strings.EqualFold(relUrl, "list") {
+			venuesRaw := r.URL.Query().Get("venues")
+			venues := strings.Split(venuesRaw, ",")
+			listVenuesHandler(venues, w, r)
 		} else if isValidKey(relUrl) {
 			getVenueHandler(relUrl, w, r)
 		} else {
-			http.Error(w, invalidKeyMsg, 400)
+			http.Error(w, invalidKeyMsg+relUrl, 400)
 		}
 	} else if strings.EqualFold(r.Method, "patch") {
 		if isValidKey(relUrl) {
-			// TODO: Patch-handler
+			postVenueReviewHandler(relUrl, w, r)
 		} else {
-			http.Error(w, invalidKeyMsg, 400)
+			http.Error(w, invalidKeyMsg+relUrl, 400)
 		}
 	} else {
-		http.Error(w, methodNotAllowedMsg, 405)
+		http.Error(w, methodNotAllowedMsg+r.Method, 405)
 	}
 }
 
@@ -92,10 +92,29 @@ func getVenueHandler(relUrl string, w http.ResponseWriter, r *http.Request) {
 	encoder.Encode(e)
 }
 
-func ListVenuesHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "List venues")
+func listVenuesHandler(venueKeys []string, w http.ResponseWriter, r *http.Request) {
+	ctx := appengine.NewContext(r)
+	venues := []*Venue{}
+	for i := 0; i < len(venueKeys); i++ {
+		if !isValidKey(venueKeys[i]) {
+			http.Error(w, invalidKeyMsg+venueKeys[i], 400)
+			return
+		}
+		k := datastore.NewKey(ctx, venue, venueKeys[i], 0, nil)
+		e := new(Venue)
+		if err := datastore.Get(ctx, k, e); err != nil {
+			if err != datastore.ErrNoSuchEntity {
+				http.Error(w, err.Error(), 500)
+				return
+			}
+		} else {
+			venues = append(venues, e)
+		}
+	}
+	encoder := json.NewEncoder(w)
+	encoder.Encode(venues)
 }
 
-func PostVenueReviewHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Post venue review please")
+func postVenueReviewHandler(relUrl string, w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Post venue review please: "+relUrl)
 }
