@@ -6,7 +6,9 @@ Installation guide:
 * Install [SASS](http://sass-lang.com/install)
 * Install [GO](https://golang.org/doc/install)
 * Install [Google Go Appengine](https://cloud.google.com/appengine/docs/go/download)
-* TODO: Guide to installing App Engine Datastore dependency
+* Set the [GOPATH](https://golang.org/doc/code.html#GOPATH) variable
+* `go get google.golang.org/appengine`
+* `go get github.com/gorilla/schema`
 
 
 Source code overview:
