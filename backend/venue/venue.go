@@ -58,11 +58,9 @@ type VenueDataModel struct {
 }
 
 type VenueReview struct {
-	SmokingPolicy                 int
+	Venue
 	SmokingPolicySpecified        bool
-	AirQualitySmokers             float64
 	AirQualitySmokersSpecified    bool
-	AirQualityNonsmokers          float64
 	AirQualityNonsmokersSpecified bool
 }
 
