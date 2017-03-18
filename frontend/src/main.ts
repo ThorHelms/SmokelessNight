@@ -1,22 +1,11 @@
-import "./polyfills.browser";
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { platformBrowser } from "@angular/platform-browser";
-import { AppModule } from "./app/app.module";
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
 
-export const platformRef = platformBrowser();
-
-export function main() {
-  return platformRef.bootstrapModule(AppModule)
-    .catch(err => console.error(err));
+if (environment.production) {
+  enableProdMode();
 }
 
-// support async tag or hmr
-switch (document.readyState) {
-  case "interactive":
-  case "complete":
-    main();
-    break;
-  case "loading":
-  default:
-    document.addEventListener("DOMContentLoaded", () => main());
-}
+platformBrowserDynamic().bootstrapModule(AppModule);
