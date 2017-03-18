@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { VenueService } from './venue.service';
+import { MapModule } from './map/map.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { VenueService } from './venue.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MapModule
   ],
   providers: [VenueService],
   bootstrap: [AppComponent]
