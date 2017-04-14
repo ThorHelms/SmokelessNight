@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AgmCoreModule } from 'angular2-google-maps/core';
+import { AgmCoreModule } from '@agm/core';
 
 @Component({
   selector: 'app-map',
